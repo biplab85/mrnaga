@@ -1,0 +1,26 @@
+# Playwright MCP browser console output — tool noise, not project files
+.playwright-mcp/
+
+# Local Claude Code settings
+.claude/settings.local.json
+
+# assets/images/ holds ~200 MB, but the site only uses the 15 files below:
+# the rest are unused source photography and generated webp size variants.
+# They stay on disk, out of git history. To track a new image, add a matching
+# "!" line here.
+assets/images/*
+!assets/images/logo-mr-naga.png
+!assets/images/hero-chilli-montage.webp
+!assets/images/hero-img.png
+!assets/images/hero-jars-trio.png
+!assets/images/story-3-stack.png
+!assets/images/compare-original.webp
+!assets/images/compare-gold.webp
+!assets/images/product-original.webp
+!assets/images/product-original-2pack.jpg
+!assets/images/product-gold.webp
+!assets/images/product-gold-2pack.jpg
+!assets/images/product-mixed-2pack.jpg
+!assets/images/product-junior-70g.jpg
+!assets/images/product-4-jar-pack.webp
+!assets/images/product-tee.jpg
