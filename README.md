@@ -23,7 +23,7 @@ currency switcher, mobile drawer) and footer.
 ```
 index.html                  landing page
 stockists.html              store finder
-reference.txt               design reference URL (Shopify "Yummi" theme)
+reference.txt               design reference link
 assets/
   css/
     style.css               design system + all landing-page components
@@ -147,7 +147,9 @@ Modern evergreen browsers. Uses CSS custom properties, `clamp()`, grid, `aspect-
 feature checks (including the `addEventListener`/`addListener` fallback for
 `matchMedia`), so it degrades quietly rather than throwing.
 
-## Reference
+## Author
 
-`reference.txt` points at <https://yummi-theme.myshopify.com/> — the Shopify theme used
-as the layout and interaction reference for the header, product grid and footer.
+**Biplab Paul**
+
+- Mobile: 01735927356
+- Email: <biplab.cse.85@gmail.com>
