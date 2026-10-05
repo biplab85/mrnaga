@@ -1,0 +1,430 @@
+/* ============================================================================
+   MR NAGA — About us
+   Extends the "Heritage Heat House" system in style.css. Tokens only, no new
+   palette. Editorial/provenance treatment: light, typographic, generous —
+   deliberately the counterweight to the dark commerce hero on the home page.
+   All page-scoped classes are prefixed .ab-
+   ========================================================================== */
+
+/* style.css resets <ul> only — these ordered lists are semantic, not numbered */
+.ab-crumb ol,
+.ab-ways,
+.ab-timeline{ margin:0; padding:0; list-style:none; }
+
+/* ================================================================= HERO === */
+.ab-hero{
+  position:relative;
+  background:
+    radial-gradient(120% 90% at 88% 0%, #FFFFFF 0%, var(--cream) 46%, var(--cream-2) 100%);
+  border-bottom:1px solid var(--line);
+  padding:var(--s5) 0 0;
+  overflow:hidden;
+}
+/* faint chilli-red bloom, top-left — atmosphere without a photo */
+.ab-hero::before{
+  content:"";
+  position:absolute; inset:auto auto 30% -12%;
+  width:46rem; height:46rem; border-radius:50%;
+  background:radial-gradient(circle, rgba(237,7,10,.07) 0%, rgba(237,7,10,0) 68%);
+  pointer-events:none;
+}
+.ab-hero__inner{
+  position:relative;
+  display:grid;
+  gap:var(--s5);
+  align-items:center;
+  padding-bottom:var(--s6);
+}
+@media (min-width:900px){
+  .ab-hero{ padding-top:var(--s6); }
+  .ab-hero__inner{
+    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+    gap:var(--s6);
+    padding-bottom:var(--s7);
+  }
+}
+
+/* -- breadcrumb -- */
+.ab-crumb{ margin-bottom:var(--s3); }
+.ab-crumb ol{
+  display:flex; flex-wrap:wrap; align-items:center; gap:.5rem;
+  font-size:.75rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--fg-muted);
+}
+.ab-crumb li+li::before{
+  content:"/"; margin-right:.5rem; color:var(--line);
+}
+.ab-crumb a{ position:relative; text-decoration:none; }
+/* hit-area expander — 15px of text is a poor tap target; grows the touch
+   region to ~44px without moving anything on the page */
+.ab-crumb a::after{
+  content:"";
+  position:absolute;
+  inset:-14px -8px;
+}
+.ab-crumb a:hover{ color:var(--naga-deep); }
+.ab-crumb [aria-current]{ color:var(--char); font-weight:600; }
+
+/* -- title -- */
+.ab-hero__title{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:clamp(2.6rem, 6.4vw, 5.25rem);
+  line-height:.98;
+  letter-spacing:-.015em;
+  margin:0 0 var(--s3);
+  text-wrap:balance;
+}
+.ab-hero__title em{
+  font-style:italic;
+  font-weight:700;
+  color:var(--naga);
+  font-variation-settings:"SOFT" 30, "WONK" 1;
+}
+
+/* -- opening quote -- */
+.ab-hero__quote{
+  margin:0 0 var(--s4);
+  padding-left:var(--s3);
+  border-left:3px solid var(--brass);
+  max-width:34rem;
+}
+.ab-hero__quote p{
+  margin:0;
+  font-family:var(--display);
+  font-weight:700;
+  font-style:italic;
+  font-size:clamp(1.0625rem, 1.9vw, 1.375rem);
+  line-height:1.42;
+  color:var(--char);
+  text-wrap:pretty;
+}
+
+.ab-hero__actions{ display:flex; flex-wrap:wrap; gap:var(--s2); }
+/* .btn--ghost is authored for dark grounds; re-point it for this light hero */
+.ab-btn-dark{
+  --btn-bg:transparent;
+  --btn-fg:var(--ink);
+  --btn-bd:rgba(20,13,12,.28);
+}
+.ab-btn-dark:hover{ --btn-bg:var(--ink); --btn-fg:var(--white); --btn-bd:var(--ink); }
+
+/* -- hero figure -- */
+.ab-hero__figure{
+  position:relative;
+  margin:0;
+  justify-self:center;
+  width:min(100%, 30rem);
+  /* own stacking context, so the offset frame below sits behind the image
+     instead of dropping behind the section background */
+  isolation:isolate;
+}
+.ab-hero__figure::after{
+  /* brass hairline frame, offset — editorial detail */
+  content:"";
+  position:absolute; inset:1.25rem -1.25rem -1.25rem 1.25rem;
+  border:1px solid var(--brass);
+  border-radius:var(--radius-lg);
+  z-index:-1;
+  opacity:.55;
+}
+.ab-hero__figure img{
+  width:100%;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);
+  transform:rotate(-1.2deg);
+  transition:transform var(--dur) var(--ease);
+}
+.ab-hero__figure:hover img{ transform:rotate(0deg) scale(1.012); }
+
+.ab-hero__seal{
+  position:absolute; top:-18px; right:-14px;
+  width:78px; height:78px;
+  display:grid; place-items:center;
+  border-radius:50%;
+  background:var(--naga);
+  color:var(--white);
+  font-family:var(--display);
+  font-weight:900;
+  font-size:.875rem;
+  line-height:1.1;
+  text-align:center;
+  box-shadow:var(--shadow-md);
+  transform:rotate(-10deg);
+  transition:transform var(--dur) var(--ease);
+}
+.ab-hero__figure:hover .ab-hero__seal{ transform:rotate(-4deg) scale(1.06); }
+@media (max-width:899px){
+  .ab-hero__seal{ width:62px; height:62px; font-size:.75rem; top:-12px; right:-8px; }
+  .ab-hero__figure::after{ inset:1rem -1rem -1rem 1rem; }
+}
+
+/* -- at-a-glance meta strip -- */
+.ab-meta{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;
+  background:var(--line);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+@media (min-width:900px){ .ab-meta{ grid-template-columns:repeat(4,minmax(0,1fr)); } }
+.ab-meta li{
+  background:var(--cream);
+  padding:var(--s3) var(--s2);
+  display:flex; flex-direction:column; gap:.35rem;
+  min-width:0;
+}
+.ab-meta span{
+  font-size:.6875rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--fg-muted);
+}
+.ab-meta b{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:1.0625rem;
+  line-height:1.2;
+  color:var(--ink);
+}
+
+/* ====================================================== EDITORIAL SPLIT === */
+.ab-split{ display:grid; gap:var(--s4); }
+@media (min-width:1000px){
+  .ab-split{
+    grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+    gap:var(--s6);
+    align-items:start;
+  }
+  .ab-split__aside{ position:sticky; top:calc(var(--hdr) + var(--s2)); }
+}
+.ab-split__aside .section-title{ text-align:left; }
+.ab-split__body p{ max-width:38rem; }
+.ab-lede{
+  font-size:clamp(1.0625rem, 1.6vw, 1.1875rem);
+  line-height:1.6;
+  color:var(--char);
+  font-weight:500;
+}
+
+/* -- spec list -- */
+.ab-specs{
+  margin-top:var(--s4);
+  display:grid;
+  gap:1px;
+  background:var(--line);
+  border-block:1px solid var(--line);
+}
+@media (min-width:640px){ .ab-specs{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+.ab-specs li{
+  background:var(--white);
+  padding:var(--s3);
+  display:flex; flex-direction:column; gap:.4rem;
+  min-width:0;
+  transition:background var(--dur) var(--ease);
+}
+.ab-specs li:hover{ background:var(--cream); }
+.ab-specs b{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:1.0625rem;
+  color:var(--ink);
+}
+.ab-specs span{ font-size:.9375rem; color:var(--fg-muted); line-height:1.55; }
+
+/* ================================================================= USES === */
+.ab-uses{ background:var(--cream); }
+
+.ab-ways{
+  max-width:60rem;
+  margin-inline:auto;
+  border-top:1px solid var(--line);
+}
+.ab-ways li{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  gap:var(--s2);
+  align-items:baseline;
+  padding:var(--s3) var(--s2);
+  border-bottom:1px solid var(--line);
+  transition:background var(--dur) var(--ease), padding-left var(--dur) var(--ease);
+}
+@media (min-width:768px){
+  .ab-ways li{ gap:var(--s4); padding:var(--s3); }
+  .ab-ways li:hover{ background:var(--white); padding-left:var(--s4); }
+}
+.ab-ways__no{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:clamp(1.5rem, 3.2vw, 2.25rem);
+  line-height:1;
+  color:var(--line);
+  font-variant-numeric:tabular-nums;
+  transition:color var(--dur) var(--ease);
+}
+.ab-ways li:hover .ab-ways__no{ color:var(--naga); }
+.ab-ways p{
+  margin:0;
+  font-size:clamp(1rem, 1.5vw, 1.125rem);
+  line-height:1.55;
+  color:var(--char);
+  text-wrap:pretty;
+}
+.ab-ways b{ font-weight:600; color:var(--ink); }
+
+.ab-endless{
+  max-width:44rem;
+  margin:var(--s6) auto 0;
+  text-align:center;
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(1.375rem, 3.4vw, 2.125rem);
+  line-height:1.24;
+  color:var(--ink);
+  text-wrap:balance;
+}
+.ab-endless em{
+  display:inline-block;
+  margin-top:.35rem;
+  font-style:italic;
+  color:var(--naga);
+  font-variation-settings:"SOFT" 30, "WONK" 1;
+}
+
+/* ============================================================ DARK BAND === */
+.ab-dark{
+  position:relative;
+  background:var(--ink);
+  color:rgba(255,255,255,.76);
+  padding:var(--s7) 0;
+  overflow:hidden;
+}
+.ab-dark__grain{
+  position:absolute; inset:0;
+  pointer-events:none;
+  opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:3px 3px;
+}
+.ab-dark__inner{
+  position:relative;
+  display:grid;
+  gap:var(--s5);
+  align-items:center;
+}
+@media (min-width:900px){
+  .ab-dark__inner{ grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:var(--s6); }
+}
+.ab-dark__copy{ max-width:38rem; }
+.ab-dark__copy p{ font-size:1.0625rem; line-height:1.68; }
+.ab-dark .btn{ margin-top:var(--s2); }
+
+.ab-pull{
+  margin:var(--s3) 0 var(--s3);
+  padding-left:var(--s3);
+  border-left:3px solid var(--brass);
+  font-family:var(--display);
+  font-weight:700;
+  font-style:italic;
+  font-size:1.1875rem;
+  line-height:1.44;
+  color:var(--white);
+}
+
+.ab-dark__figure{ margin:0; justify-self:center; width:min(100%, 26rem); }
+.ab-dark__figure img{
+  width:100%;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);
+  transition:transform var(--dur) var(--ease);
+}
+.ab-dark__figure:hover img{ transform:translateY(-4px) scale(1.01); }
+
+/* -- timeline -- */
+.ab-timeline{
+  position:relative;
+  margin-top:var(--s6);
+  padding-top:var(--s4);
+  border-top:1px solid rgba(255,255,255,.14);
+  display:grid;
+  gap:var(--s4);
+}
+@media (min-width:768px){
+  .ab-timeline{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--s5); }
+}
+.ab-timeline li{ min-width:0; display:flex; flex-direction:column; gap:.5rem; }
+.ab-timeline b{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:1.75rem;
+  line-height:1;
+  color:var(--brass);
+}
+.ab-timeline span{ font-size:.9375rem; line-height:1.6; }
+
+/* ================================================================ MAKER === */
+.ab-maker__card{
+  margin:var(--s5) 0 0;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  background:var(--white);
+  box-shadow:var(--shadow-sm);
+  display:grid;
+  transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+@media (min-width:640px){
+  .ab-maker__card{ grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); align-items:stretch; }
+}
+.ab-maker__card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); }
+/* keep an explicit ratio at every width — letting the 2:3 source drive the
+   grid row made the card tower over its caption */
+.ab-maker__card img{
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center;
+  aspect-ratio:4/3;
+}
+@media (min-width:640px){ .ab-maker__card img{ aspect-ratio:1/1; } }
+.ab-maker__card figcaption{
+  padding:var(--s3);
+  display:flex; flex-direction:column; gap:.5rem; justify-content:center;
+}
+.ab-maker__card b{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:1.125rem;
+  color:var(--ink);
+}
+.ab-maker__card span{ font-size:.9375rem; color:var(--fg-muted); line-height:1.6; }
+
+/* ================================================================== CTA === */
+.ab-cta .cta-band__inner{ align-items:center; }
+
+/* ====================================================== REDUCED MOTION === */
+@media (prefers-reduced-motion:reduce){
+  .ab-hero__figure img,
+  .ab-hero__seal,
+  .ab-dark__figure img,
+  .ab-maker__card,
+  .ab-ways li,
+  .ab-specs li{
+    transition:none;
+  }
+  .ab-hero__figure:hover img{ transform:rotate(-1.2deg); }
+  .ab-hero__figure:hover .ab-hero__seal{ transform:rotate(-10deg); }
+  .ab-dark__figure:hover img,
+  .ab-maker__card:hover{ transform:none; }
+  .ab-ways li:hover{ padding-left:var(--s3); }
+}
+
+/* ================================================================ PRINT === */
+@media print{
+  .ab-hero::before,
+  .ab-dark__grain,
+  .ab-hero__seal,
+  .ab-cta{ display:none !important; }
+  .ab-dark{ background:none; color:#000; }
+  .ab-dark__copy p,
+  .ab-timeline span{ color:#000; }
+}

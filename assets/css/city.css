@@ -1,0 +1,165 @@
+/* ============================================================================
+   MR NAGA — City stockist pages (Sydney / Melbourne)
+   Extends style.css + stockists.css. Reuses the .stockist card and the finder
+   search from the main stockists page; only the city-specific layout lives
+   here. Page-scoped classes are prefixed .cy-
+   ========================================================================== */
+
+/* ============================================================ FINDER ====== */
+/* single-city finder: count + suburb shortcuts on the left, search right */
+.cy-finder .finder__inner{ align-items:center; }
+.cy-finder__meta{ display:flex; flex-direction:column; gap:var(--s2); min-width:0; }
+.cy-finder__meta .stockists__count{ margin:0; }
+
+.cy-suburbs{
+  display:flex; gap:.375rem;
+  overflow-x:auto; scrollbar-width:none;
+  margin:0; padding:0 0 .125rem; list-style:none;
+}
+.cy-suburbs::-webkit-scrollbar{ display:none; }
+.cy-suburbs button{
+  flex:none;
+  min-height:36px; padding:0 .875rem;
+  background:var(--white); color:var(--char);
+  border:1px solid var(--line); border-radius:999px;
+  font-size:.8125rem; font-weight:600; cursor:pointer; white-space:nowrap;
+  transition:background var(--dur) var(--ease), border-color var(--dur) var(--ease),
+             color var(--dur) var(--ease);
+}
+.cy-suburbs button:hover{ border-color:var(--ink); color:var(--ink); }
+.cy-suburbs button[aria-pressed="true"]{ background:var(--ink); border-color:var(--ink); color:var(--white); }
+
+/* ============================================================== LIST ====== */
+.cy-list{ padding:var(--s5) 0 var(--s6); }
+
+.cy-note{
+  display:flex; align-items:flex-start; gap:.75rem;
+  margin:0 0 var(--s4); padding:var(--s2) var(--s3);
+  background:#FFF8E8;
+  border:1px solid rgba(227,167,44,.45); border-radius:var(--radius-lg);
+  font-size:.9375rem; color:var(--char);
+}
+.cy-note svg{ flex:none; width:20px; height:20px; margin-top:.15rem; color:var(--brass-deep); }
+.cy-note b{ color:var(--ink); }
+.cy-note a{ color:var(--naga-deep); font-weight:600; }
+
+/* numbered cards — the counter skips filtered-out cards, so the visible
+   results always read 01, 02, 03 */
+.cy-list .stockists__grid{ counter-reset:stockist; }
+.cy-list .stockist{ counter-increment:stockist; overflow:hidden; }
+.cy-list .stockist::after{
+  content:counter(stockist, decimal-leading-zero);
+  position:absolute; top:var(--s3); right:var(--s3);
+  font-family:var(--display); font-weight:900; font-size:1.75rem; line-height:1;
+  color:var(--line); font-variant-numeric:tabular-nums;
+  transition:color var(--dur) var(--ease);
+  pointer-events:none;
+}
+.cy-list .stockist:hover::after{ color:var(--naga); }
+.cy-list .stockist__suburb,
+.cy-list .stockist__name{ padding-right:3rem; }
+/* a hairline that draws across the top of the card on hover */
+.cy-list .stockist::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:3px;
+  background:linear-gradient(90deg, var(--naga), var(--brass));
+  transform:scaleX(0); transform-origin:left;
+  transition:transform 420ms var(--ease);
+}
+.cy-list .stockist:hover::before{ transform:scaleX(1); }
+
+/* ============================================================= SHELF ====== */
+.cy-shelf-band{ background:var(--cream); border-top:1px solid var(--line); }
+.cy-shelf{ display:grid; gap:var(--s5); align-items:center; }
+@media (min-width:1000px){ .cy-shelf{ grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:var(--s6); } }
+.cy-shelf__copy .section-lede{ margin-inline:0; }
+.cy-shelf__copy > p:not(.eyebrow){ color:var(--char); max-width:34rem; }
+
+.cy-jars{ display:grid; gap:var(--s3); grid-template-columns:repeat(2,minmax(0,1fr)); }
+@media (max-width:479px){ .cy-jars{ grid-template-columns:1fr; } }
+.cy-jar{
+  position:relative;
+  display:flex; flex-direction:column;
+  background:var(--white);
+  border:1px solid var(--line); border-radius:var(--radius-lg);
+  overflow:hidden;
+  transition:transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.cy-jar:hover{ transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.cy-jar__media{ aspect-ratio:1/1; background:var(--cream-2); overflow:hidden; }
+.cy-jar__media img{ width:100%; height:100%; object-fit:cover; transition:transform 600ms var(--ease); }
+.cy-jar:hover .cy-jar__media img{ transform:scale(1.05); }
+.cy-jar__body{ padding:var(--s3); display:flex; flex-direction:column; gap:.5rem; flex:1; }
+.cy-jar__label{
+  display:inline-flex; align-items:center; gap:.5rem; align-self:flex-start;
+  font-size:.6875rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--char);
+}
+.cy-jar__label i{ width:14px; height:14px; border-radius:50%; box-shadow:inset 0 0 0 1px rgba(0,0,0,.12); }
+.cy-jar--original .cy-jar__label i{ background:var(--naga); }
+.cy-jar--gold .cy-jar__label i{ background:linear-gradient(135deg, #F4CF6B, var(--brass-deep)); }
+.cy-jar h3{ font-family:var(--text); font-weight:700; font-size:1.375rem; letter-spacing:-.02em; }
+.cy-jar p{ margin:0; font-size:.9375rem; color:var(--fg-muted); }
+.cy-jar .heat{ margin:auto 0 0; padding-top:var(--s2); }
+.cy-jar--gold .heat__pips i.on{ background:var(--brass); }
+
+.cy-since{
+  display:flex; align-items:center; gap:var(--s2);
+  margin-top:var(--s4); padding-top:var(--s3);
+  border-top:1px solid var(--line);
+}
+.cy-since b{
+  font-family:var(--display); font-weight:900; font-size:2.5rem; line-height:1;
+  color:var(--naga);
+}
+.cy-since span{ font-size:.9375rem; color:var(--char); max-width:20rem; }
+
+/* ========================================================== RETAILER ====== */
+.cy-trade{
+  position:relative; isolation:isolate; overflow:hidden;
+  display:grid; gap:var(--s4); align-items:center;
+  padding:var(--s5) var(--s4);
+  background:var(--ink); color:rgba(255,255,255,.78);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);
+}
+@media (min-width:900px){ .cy-trade{ grid-template-columns:minmax(0,1.3fr) auto; padding:var(--s5) var(--s6); } }
+.cy-trade::before{
+  content:""; position:absolute; z-index:-1; right:-10%; top:-60%;
+  width:60%; aspect-ratio:1; border-radius:50%;
+  background:radial-gradient(circle, rgba(237,7,10,.4), transparent 66%);
+}
+.cy-trade h2{
+  font-family:var(--display); font-optical-sizing:auto;
+  font-weight:700; font-variation-settings:"SOFT" 30, "WONK" 1;
+  font-size:clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
+  line-height:1.08; letter-spacing:-.02em; color:var(--white);
+  margin:0 0 var(--s2);
+}
+.cy-trade p{ margin:0; max-width:34rem; }
+.cy-trade__perks{
+  display:flex; flex-wrap:wrap; gap:.5rem var(--s3);
+  margin:var(--s3) 0 0; padding:0; list-style:none;
+}
+.cy-trade__perks li{
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.875rem; font-weight:600; color:var(--white);
+}
+.cy-trade__perks li::before{
+  content:""; width:10px; height:11px; background:var(--brass);
+  clip-path:polygon(50% 0%,100% 27%,100% 73%,50% 100%,0% 73%,0% 27%);
+}
+.cy-trade__actions{ display:flex; flex-wrap:wrap; gap:var(--s2); }
+
+/* ====================================================== REDUCED MOTION === */
+@media (prefers-reduced-motion:reduce){
+  .cy-jar:hover,
+  .cy-jar:hover .cy-jar__media img{ transform:none; }
+  .cy-list .stockist::before{ transition:none; }
+}
+
+/* ================================================================ PRINT === */
+@media print{
+  .cy-suburbs,.cy-trade__actions{ display:none !important; }
+  .cy-trade{ background:#fff; color:#000; box-shadow:none; }
+  .cy-trade h2,.cy-trade__perks li{ color:#000; }
+}

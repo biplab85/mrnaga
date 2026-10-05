@@ -14,6 +14,12 @@ step, no framework, no package manager — open the files and they run.
 | --- | --- |
 | `index.html` | Landing page: hero, marquee, trust strip, product range with filters, Original vs Gold comparison, brand story, ways-to-use grid, stockists CTA, FAQ accordion, newsletter signup |
 | `stockists.html` | Store finder: dark page hero with stats, search + city tabs, 17 stockists grouped by city, empty state, "become a stockist" CTA |
+| `about-us.html` | Brand story: editorial hero, what is in the jar, ways to use it, provenance band with timeline, Pasha Foods |
+| `contact.html` | Contact form (mailto fallback until an endpoint is set) with a rail of other ways to reach the team |
+| `stockists-sydney.html` / `stockists-melbourne.html` | Single-city finders: suburb shortcuts + search, numbered store cards, "what to look for on the shelf", retailer CTA |
+| `how-hot-is-it.html` | Heat guide: Scoville facts, log-scale comparison chart (a real `<table>`), dose ladder, flavour, Original vs Gold, safety |
+| `how-to-use.html` | Usage guide: the quarter-teaspoon rule, 11 uses with amounts, which jar for which job, 3 recipes, "used too much" remedies |
+| `search.html` | Site search over products, guides/recipes and stockists, with tabs, sort, highlighting and `?q=` in the URL |
 
 Both pages share the same announcement bar, sticky header (centred badge logo,
 currency switcher, mobile drawer) and footer.
@@ -23,15 +29,22 @@ currency switcher, mobile drawer) and footer.
 ```
 index.html                  landing page
 stockists.html              store finder
-reference.txt               design reference link
 assets/
   css/
     style.css               design system + all landing-page components
     stockists.css           stockists-only patterns; extends style.css
+    about.css               about page (.ab-)
+    contact.css             contact page (.ct-)
+    guide.css               how-hot-is-it + how-to-use (.gd-)
+    city.css                Sydney / Melbourne pages (.cy-)
+    search.css              search page (.sr-)
   js/
     main.js                 header, menu, currency, filters, accordion, reveals,
                             marquee cloning, newsletter validation
-    stockists.js            search + city filtering for the finder
+    stockists.js            search + city filtering for the finder (also city pages)
+    contact.js              contact form validation + submit
+    city.js                 suburb shortcut chips on the city pages
+    search.js               search index + results rendering
   images/                   product shots, hero art, logo, icons (jpg/webp/png/svg)
 mrnaga-hero.png             full-page screenshots kept for reference
 mrnaga-full.png

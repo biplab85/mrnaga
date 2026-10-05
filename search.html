@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search — Mr Naga | Australia &amp; New Zealand</title>
+<meta name="description" content="Search Mr Naga products, recipes, heat guides and stockists across Australia and New Zealand.">
+<meta name="theme-color" content="#ED070A">
+
+<link rel="icon" href="assets/images/logo-mr-naga.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/images/hero-chilli-montage.webp" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,700..900,20..30,1&family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/search.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="announcement" role="region" aria-label="Announcement">
+  <div class="announcement__inner">
+    <p>New Stockist in Bella Vista. Mini and Junior sizes available. <a href="index.html#range">Check out our Merch.</a></p>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+
+    <button class="hdr-icon hdr-icon--menu" type="button" id="menuToggle"
+            aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <svg viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+        <path d="M1 3.5H13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M1 10.5H13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#range">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about-us.html">About us</a></li>
+        <li><a href="stockists.html">Stockists</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <a class="site-logo" href="index.html" aria-label="Mr Naga — home">
+      <img src="assets/images/logo-mr-naga.png"
+           alt="Mr Naga" width="96" height="96" fetchpriority="high">
+    </a>
+
+    <div class="site-utils">
+      <div class="currency">
+        <button type="button" class="currency__btn" id="currencyBtn"
+                aria-expanded="false" aria-haspopup="listbox" aria-label="Currency: Australian Dollar. Change region">
+          <span>AUD</span>
+          <svg viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="currency__menu" id="currencyMenu" role="listbox" aria-label="Region" hidden>
+          <li role="option" aria-selected="true"><button type="button">Australia (AUD)</button></li>
+          <li role="option" aria-selected="false"><button type="button">New Zealand (NZD)</button></li>
+        </ul>
+      </div>
+
+      <a class="hdr-icon" href="search.html" aria-label="Search">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.3" fill="none"/>
+          <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <button class="hdr-icon" type="button" aria-label="Account">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <circle cx="10" cy="7" r="3.2" stroke="currentColor" stroke-width="1.3" fill="none"/>
+          <path d="M4 17c0-3.2 2.7-5.2 6-5.2s6 2 6 5.2" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <button class="hdr-icon hdr-icon--cart" type="button" aria-label="Cart, 0 items">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M4.5 6h11l-1 11h-9l-1-11z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+          <path d="M7.5 8V5.5a2.5 2.5 0 015 0V8" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#range">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about-us.html">About us</a></li>
+      <li><a href="stockists.html">Stockists</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="how-to-use.html">How to use it</a></li>
+      <li><a href="how-hot-is-it.html">How hot is it?</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============================================================ SEARCH HERO ============================================================ -->
+<section class="page-hero sr-hero" aria-labelledby="srTitle">
+  <div class="page-hero__bg" aria-hidden="true">
+    <img src="assets/images/hero-chilli-montage.webp" alt=""
+         width="1600" height="900" fetchpriority="high">
+  </div>
+  <div class="page-hero__scrim" aria-hidden="true"></div>
+  <div class="page-hero__grain" aria-hidden="true"></div>
+
+  <div class="wrap page-hero__inner">
+    <div class="sr-hero__copy">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Search</li>
+        </ol>
+      </nav>
+
+      <h1 class="page-hero__title" id="srTitle">What are you<br><em>looking for?</em></h1>
+
+      <form class="sr-form" id="searchForm" action="search.html" method="get" role="search">
+        <label class="visually-hidden" for="q">Search products, recipes, guides and stockists</label>
+        <div class="sr-field">
+          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+            <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.4" fill="none"/>
+            <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <input type="search" id="q" name="q"
+                 placeholder="Products, recipes or suburbs"
+                 autocomplete="off" enterkeyhint="search" spellcheck="false"
+                 aria-describedby="searchStatus">
+          <button class="sr-clear" type="button" id="searchClear" aria-label="Clear search" hidden>
+            <svg viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+              <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <button class="btn btn--primary" type="submit">Search</button>
+        </div>
+      </form>
+
+      <div class="sr-suggest">
+        <span>Popular</span>
+        <ul class="sr-chips">
+          <li><button type="button" data-q="Gold">Gold</button></li>
+          <li><button type="button" data-q="Multipack">Multipacks</button></li>
+          <li><button type="button" data-q="Scoville">Scoville</button></li>
+          <li><button type="button" data-q="Recipe">Recipes</button></li>
+          <li><button type="button" data-q="Sydney">Sydney</button></li>
+          <li><button type="button" data-q="Tee">Merch</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-hero__rule" aria-hidden="true"></div>
+</section>
+
+<!-- ============================================================ TOOLBAR ============================================================ -->
+<div class="sr-bar" id="results">
+  <div class="wrap sr-bar__inner">
+    <p class="sr-status" id="searchStatus" role="status" aria-live="polite">
+      Showing the full range.
+    </p>
+    <div class="sr-tabs" role="tablist" aria-label="Filter results">
+      <button class="sr-tab" type="button" role="tab" aria-selected="true"  aria-controls="searchResults" data-tab="all">All <b>8</b></button>
+      <button class="sr-tab" type="button" role="tab" aria-selected="false" aria-controls="searchResults" data-tab="products" tabindex="-1">Products <b>8</b></button>
+      <button class="sr-tab" type="button" role="tab" aria-selected="false" aria-controls="searchResults" data-tab="pages" tabindex="-1">Guides &amp; pages <b>0</b></button>
+      <button class="sr-tab" type="button" role="tab" aria-selected="false" aria-controls="searchResults" data-tab="stores" tabindex="-1">Stockists <b>0</b></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ RESULTS ============================================================ -->
+<section class="sr-results" aria-label="Search results">
+  <div class="wrap" id="searchResults" role="tabpanel" tabindex="-1">
+    <noscript>
+      <div class="sr-empty">
+        <h2>Search needs JavaScript.</h2>
+        <p>Browse <a href="index.html#range">the range</a>, the <a href="how-to-use.html">how to use</a>
+           and <a href="how-hot-is-it.html">how hot is it</a> guides, or our
+           <a href="stockists.html">stockists</a> instead.</p>
+      </div>
+    </noscript>
+  </div>
+</section>
+
+<!-- ============================================================ NEWSLETTER ============================================================ -->
+<section class="newsletter" id="signup">
+  <div class="wrap newsletter__inner">
+    <div class="newsletter__copy">
+      <h2>Get exclusive deals<br>and early access.</h2>
+      <p>New drops, new stockists, and the occasional recipe worth burning your mouth for.</p>
+    </div>
+    <form class="newsletter__form" id="signupForm" novalidate>
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" inputmode="email" autocomplete="email"
+               placeholder="you@example.com" required aria-describedby="emailHelp emailError">
+        <p class="field__help" id="emailHelp">We'll only email when there's something worth opening.</p>
+        <p class="field__error" id="emailError" role="alert" hidden></p>
+      </div>
+      <button class="btn btn--primary" type="submit" id="signupBtn">Sign up</button>
+      <p class="field__success" id="signupSuccess" role="status" hidden>Thanks — you're on the list.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================ FOOTER ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap site-footer__top">
+    <div class="site-footer__brand">
+      <img src="assets/images/logo-mr-naga.png"
+           alt="Mr Naga" width="88" height="88" loading="lazy">
+      <p>The official and exclusive distributors for Mr Naga in Australia &amp; New Zealand.</p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Footer">
+      <div>
+        <h2>Shop</h2>
+        <ul>
+          <li><a href="index.html#range">Original</a></li>
+          <li><a href="index.html#range">Gold</a></li>
+          <li><a href="index.html#range">Junior 70g</a></li>
+          <li><a href="index.html#range">Multipacks</a></li>
+          <li><a href="index.html#range">Merch</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul>
+          <li><a href="how-to-use.html">How to use it</a></li>
+          <li><a href="how-hot-is-it.html">How hot is it?</a></li>
+          <li><a href="stockists-sydney.html">Stockists in Sydney</a></li>
+          <li><a href="stockists-melbourne.html">Stockists in Melbourne</a></li>
+          <li><a href="search.html" aria-current="page">Search</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="about-us.html">About us</a></li>
+          <li><a href="stockists.html">Stockists</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://www.mrnaga.com.au/policies/privacy-policy">Privacy policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Follow</h2>
+        <ul class="social">
+          <li><a href="https://www.instagram.com/mr.naga_anz/" aria-label="Mr Naga on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16.6" cy="7.4" r="1" fill="currentColor"/></svg>
+            <span>Instagram</span></a></li>
+          <li><a href="https://www.facebook.com/MrNaga-ANZ" aria-label="Mr Naga on Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 9h2.5V6.2H14c-2.1 0-3.4 1.4-3.4 3.5V11H8.6v2.8h2V21h2.9v-7.2h2.2l.4-2.8h-2.6V9.9c0-.6.2-.9.5-.9z"/></svg>
+            <span>Facebook</span></a></li>
+          <li><a href="https://www.tiktok.com/@mr.naga.anz" aria-label="Mr Naga on TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14.2 3h2.4a4.9 4.9 0 004.1 4.2v2.5a7.4 7.4 0 01-4.1-1.4v6.2A5.6 5.6 0 1111 9v2.7a2.9 2.9 0 102.1 2.8z"/></svg>
+            <span>TikTok</span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="wrap site-footer__bottom">
+    <p class="copy">© 2026 Mr Naga Australia. All rights reserved.</p>
+    <ul class="pay" aria-label="Accepted payment methods">
+      <li>Amex</li><li>Apple&nbsp;Pay</li><li>Google&nbsp;Pay</li><li>Mastercard</li>
+      <li>PayPal</li><li>Shop&nbsp;Pay</li><li>UnionPay</li><li>Visa</li>
+    </ul>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/search.js" defer></script>
+</body>
+</html>

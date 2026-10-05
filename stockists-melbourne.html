@@ -3,16 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stockists — Where to buy Mr Naga | Australia &amp; New Zealand</title>
-<meta name="description" content="Find Mr Naga ghost pepper chilli pickle in store. Our exclusive stockists across Sydney and Melbourne, with more added as we grow across Australia and New Zealand.">
+<title>Mr Naga Stockists in Melbourne — Where to Buy in VIC | Australia &amp; New Zealand</title>
+<meta name="description" content="Buy Mr Naga ghost pepper chilli pickle in Melbourne. Seven stockists across Oakleigh, Tarneit, Noble Park, Geelong West, Springvale, Truganina and Werribee.">
 <meta name="theme-color" content="#ED070A">
 
 <link rel="icon" href="assets/images/logo-mr-naga.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/images/hero-chilli-montage.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,700..900,20..30,1&family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/stockists.css">
+<link rel="stylesheet" href="assets/css/city.css">
 </head>
 <body>
 
@@ -41,7 +43,7 @@
         <li><a href="index.html#range">Products</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="about-us.html">About us</a></li>
-        <li><a href="stockists.html" aria-current="page">Stockists</a></li>
+        <li><a href="stockists.html">Stockists</a></li>
         <li><a href="index.html#faq">FAQ</a></li>
       </ul>
     </nav>
@@ -93,7 +95,7 @@
       <li><a href="index.html#range">Products</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="about-us.html">About us</a></li>
-      <li><a href="stockists.html" aria-current="page">Stockists</a></li>
+      <li><a href="stockists.html">Stockists</a></li>
       <li><a href="index.html#faq">FAQ</a></li>
       <li><a href="how-to-use.html">How to use it</a></li>
       <li><a href="how-hot-is-it.html">How hot is it?</a></li>
@@ -104,7 +106,7 @@
 <main id="main">
 
 <!-- ============================================================ PAGE HERO ============================================================ -->
-<section class="page-hero">
+<section class="page-hero" aria-labelledby="cyTitle">
   <div class="page-hero__bg" aria-hidden="true">
     <img src="assets/images/hero-chilli-montage.webp" alt=""
          width="1600" height="900" fetchpriority="high">
@@ -116,19 +118,29 @@
   <div class="wrap page-hero__inner">
 
     <div class="page-hero__copy">
-      <p class="eyebrow eyebrow--light"><span class="eyebrow__badge" aria-hidden="true"></span>Where to buy</p>
+      <nav class="crumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="stockists.html">Stockists</a></li>
+          <li aria-current="page">Melbourne</li>
+        </ol>
+      </nav>
 
-      <h1 class="page-hero__title">Find Mr&nbsp;Naga<br><em>near you.</em></h1>
+      <p class="eyebrow eyebrow--light"><span class="eyebrow__badge" aria-hidden="true"></span>Stockists · Victoria</p>
+
+      <h1 class="page-hero__title" id="cyTitle">Mr&nbsp;Naga in<br><em>Melbourne.</em></h1>
+
+      <p class="page-hero__lede">Mr Naga ghost pepper chilli pickle is stocked in seven independent grocers, butchers and supermarkets across Melbourne, the western suburbs and Geelong.</p>
 
       <div class="page-hero__actions">
-        <a class="btn btn--primary" href="#finder">Search stockists</a>
+        <a class="btn btn--primary" href="#finder">Find your nearest</a>
         <a class="btn btn--outline-light" href="index.html#range">Order online</a>
       </div>
 
       <div class="page-hero__stats">
-        <div class="stat"><b>17</b><span>Stores</span></div>
-        <div class="stat"><b>2</b><span>Cities</span></div>
-        <div class="stat"><b>1996</b><span>Since</span></div>
+        <div class="stat"><b>7</b><span>Stores</span></div>
+        <div class="stat"><b>7</b><span>Suburbs</span></div>
+        <div class="stat"><b>VIC</b><span>Victoria</span></div>
       </div>
     </div>
 
@@ -145,23 +157,26 @@
 </section>
 
 <!-- ============================================================ FINDER ============================================================ -->
-<div class="finder" id="finder">
+<div class="finder cy-finder" id="finder">
   <div class="wrap finder__inner">
 
-    <div class="finder__meta">
+    <div class="cy-finder__meta">
       <p class="stockists__count" id="stockistCount" role="status" aria-live="polite">
-        Showing <b>17</b> stockists.
+        Showing <b>7</b> stockists.
       </p>
-
-      <div class="finder__tabs" role="tablist" aria-label="Filter by city">
-        <button class="st-filter is-active" type="button" role="tab" aria-selected="true" data-city="all">All <b>17</b></button>
-        <button class="st-filter" type="button" role="tab" aria-selected="false" data-city="sydney">Sydney <b>10</b></button>
-        <button class="st-filter" type="button" role="tab" aria-selected="false" data-city="melbourne">Melbourne <b>7</b></button>
-      </div>
+      <ul class="cy-suburbs" aria-label="Jump to a suburb">
+        <li><button type="button" data-q="oakleigh" aria-pressed="false">Oakleigh</button></li>
+        <li><button type="button" data-q="tarneit" aria-pressed="false">Tarneit</button></li>
+        <li><button type="button" data-q="noble park" aria-pressed="false">Noble Park</button></li>
+        <li><button type="button" data-q="geelong" aria-pressed="false">Geelong</button></li>
+        <li><button type="button" data-q="springvale" aria-pressed="false">Springvale</button></li>
+        <li><button type="button" data-q="truganina" aria-pressed="false">Truganina</button></li>
+        <li><button type="button" data-q="werribee" aria-pressed="false">Werribee</button></li>
+      </ul>
     </div>
 
     <div class="finder__search">
-      <label class="visually-hidden" for="stockistSearch">Search stockists</label>
+      <label class="visually-hidden" for="stockistSearch">Search Melbourne stockists</label>
       <input type="search" id="stockistSearch" name="stockistSearch"
              placeholder="Store, suburb or postcode"
              autocomplete="off" enterkeyhint="search"
@@ -181,202 +196,19 @@
 </div>
 
 <!-- ============================================================ LIST ============================================================ -->
-<section class="stockists">
+<section class="stockists cy-list" aria-labelledby="listHeading">
   <div class="wrap">
 
-    <!-- ---------------------------------------------------------- SYDNEY -- -->
-    <div class="stockists__group" data-group="sydney">
-      <div class="stockists__head">
-        <h2 class="stockists__city">Sydney <span>New South Wales</span></h2>
-        <a class="stockists__more" href="stockists-sydney.html">Sydney page <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
+    <p class="cy-note">
+      <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="14" r="1" fill="currentColor"/></svg>
+      <span><b>Call ahead before you travel.</b> Stock levels move quickly, and not every store carries
+      the full range. Can't find a jar? <a href="contact.html">Let us know</a>.</span>
+    </p>
 
-      <ul class="stockists__grid">
-
-        <li class="stockist" data-city="sydney" data-search="fiji bakery and coffee cambelltown 6/9 patrick st cambelltown">
-          <p class="stockist__suburb">Cambelltown</p>
-          <h3 class="stockist__name">Fiji Bakery and Coffee</h3>
-          <address class="stockist__address">6/9 Patrick St, Cambelltown</address>
-          <a class="stockist__dir" href="https://www.google.com/maps/search/?api=1&amp;query=6%2F9%20Patrick%20St%2C%20Campbelltown%20NSW"
-             target="_blank" rel="noopener noreferrer">
-            <svg class="stockist__dir-pin" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M8 14.6s5-4.4 5-8.1a5 5 0 1 0-10 0c0 3.7 5 8.1 5 8.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-              <circle cx="8" cy="6.4" r="1.85" fill="none" stroke="currentColor" stroke-width="1.4"/>
-            </svg>
-            <span>Directions</span>
-            <svg class="stockist__dir-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="visually-hidden">to Fiji Bakery and Coffee (opens in a new tab)</span>
-          </a>
-        </li>
-
-        <li class="stockist" data-city="sydney" data-search="kazi's supermarket kazis glenfield shop 1/80 railway parade glenfield nsw 2167">
-          <p class="stockist__suburb">Glenfield</p>
-          <h3 class="stockist__name">Kazi's Supermarket — Glenfield</h3>
-          <address class="stockist__address">Shop 1/80 Railway Parade, Glenfield NSW 2167</address>
-          <a class="stockist__dir" href="https://www.google.com/maps/search/?api=1&amp;query=Shop%201%2F80%20Railway%20Parade%2C%20Glenfield%20NSW%202167"
-             target="_blank" rel="noopener noreferrer">
-            <svg class="stockist__dir-pin" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M8 14.6s5-4.4 5-8.1a5 5 0 1 0-10 0c0 3.7 5 8.1 5 8.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-              <circle cx="8" cy="6.4" r="1.85" fill="none" stroke="currentColor" stroke-width="1.4"/>
-            </svg>
-            <span>Directions</span>
-            <svg class="stockist__dir-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="visually-hidden">to Kazi's Supermarket Glenfield (opens in a new tab)</span>
-          </a>
-        </li>
-
-        <li class="stockist" data-city="sydney" data-search="kazi's supermarket kazis mt druitt mount druitt shop 10/13 mount st mount druitt nsw 2770">
-          <p class="stockist__suburb">Mt Druitt</p>
-          <h3 class="stockist__name">Kazi's Supermarket — Mt Druitt</h3>
-          <address class="stockist__address">Shop 10/13 Mount St, Mount Druitt NSW 2770</address>
-          <a class="stockist__dir" href="https://www.google.com/maps/search/?api=1&amp;query=Shop%2010%2F13%20Mount%20St%2C%20Mount%20Druitt%20NSW%202770"
-             target="_blank" rel="noopener noreferrer">
-            <svg class="stockist__dir-pin" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M8 14.6s5-4.4 5-8.1a5 5 0 1 0-10 0c0 3.7 5 8.1 5 8.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-              <circle cx="8" cy="6.4" r="1.85" fill="none" stroke="currentColor" stroke-width="1.4"/>
-            </svg>
-            <span>Directions</span>
-            <svg class="stockist__dir-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="visually-hidden">to Kazi's Supermarket Mt Druitt (opens in a new tab)</span>
-          </a>
-        </li>
-
-        <li class="stockist" data-city="sydney" data-search="mahmud foods distributor ingleburn 4/8 broadhurst rd ingleburn nsw 2565">
-          <p class="stockist__suburb">Ingleburn</p>
-          <h3 class="stockist__name">Mahmud Foods Distributor</h3>
-          <address class="stockist__address">4/8 Broadhurst Rd, Ingleburn NSW 2565</address>
-          <a class="stockist__dir" href="https://www.google.com/maps/search/?api=1&amp;query=4%2F8%20Broadhurst%20Rd%2C%20Ingleburn%20NSW%202565"
-             target="_blank" rel="noopener noreferrer">
-            <svg class="stockist__dir-pin" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M8 14.6s5-4.4 5-8.1a5 5 0 1 0-10 0c0 3.7 5 8.1 5 8.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-              <circle cx="8" cy="6.4" r="1.85" fill="none" stroke="currentColor" stroke-width="1.4"/>
-            </svg>
-            <span>Directions</span>
-            <svg class="stockist__dir-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="visually-hidden">to Mahmud Foods Distributor (opens in a new tab)</span>
-          </a>
-        </li>
-
-        <li class="stockist" data-city="sydney" data-search="fuska house st marys rockdale 546 princes hwy sydney new south wales 2216">
-          <p class="stockist__suburb">St Marys / Rockdale</p>
-          <h3 class="stockist__name">Fuska House</h3>
-          <address class="stockist__address">546 Princes Hwy, Sydney NSW 2216</address>
-          <a class="stockist__dir" href="https://www.google.com/maps/search/?api=1&amp;query=546%20Princes%20Hwy%2C%20Rockdale%20NSW%202216"
-             target="_blank" rel="noopener noreferrer">
-            <svg class="stockist__dir-pin" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M8 14.6s5-4.4 5-8.1a5 5 0 1 0-10 0c0 3.7 5 8.1 5 8.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-              <circle cx="8" cy="6.4" r="1.85" fill="none" stroke="currentColor" stroke-width="1.4"/>
-            </svg>
-            <span>Directions</span>
-            <svg class="stockist__dir-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="visually-hidden">to Fuska House (opens in a new tab)</span>
-          </a>
-        </li>
-
-        <li class="stockist" data-city="sydney" data-search="reliance supermarket minto 40 ben lomond rd minto nsw 2566">
-          <p class="stockist__suburb">Minto</p>
-          <h3 class="stockist__name">Reliance Supermarket</h3>
-          <address class="stockist__address">40 Ben Lomond Rd, Minto NSW 2566</address>
-          <a class="stockist__dir" href="https://www.google.com/maps/search/?api=1&amp;query=40%20Ben%20Lomond%20Rd%2C%20Minto%20NSW%202566"
-             target="_blank" rel="noopener noreferrer">
-            <svg class="stockist__dir-pin" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M8 14.6s5-4.4 5-8.1a5 5 0 1 0-10 0c0 3.7 5 8.1 5 8.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-              <circle cx="8" cy="6.4" r="1.85" fill="none" stroke="currentColor" stroke-width="1.4"/>
-            </svg>
-            <span>Directions</span>
-            <svg class="stockist__dir-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="visually-hidden">to Reliance Supermarket (opens in a new tab)</span>
-          </a>
-        </li>
-
-        <li class="stockist" data-city="sydney" data-search="ali supermarket lakemba 160-162 haldon st lakemba nsw 2195">
-          <p class="stockist__suburb">Lakemba</p>
-          <h3 class="stockist__name">Ali Supermarket</h3>
-          <address class="stockist__address">160–162 Haldon St, Lakemba NSW 2195</address>
-          <a class="stockist__dir" href="https://www.google.com/maps/search/?api=1&amp;query=160-162%20Haldon%20St%2C%20Lakemba%20NSW%202195"
-             target="_blank" rel="noopener noreferrer">
-            <svg class="stockist__dir-pin" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M8 14.6s5-4.4 5-8.1a5 5 0 1 0-10 0c0 3.7 5 8.1 5 8.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-              <circle cx="8" cy="6.4" r="1.85" fill="none" stroke="currentColor" stroke-width="1.4"/>
-            </svg>
-            <span>Directions</span>
-            <svg class="stockist__dir-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="visually-hidden">to Ali Supermarket (opens in a new tab)</span>
-          </a>
-        </li>
-
-        <li class="stockist" data-city="sydney" data-search="flavors of fiji flavours parklea entrance/5 parklea markets parklea nsw 2768">
-          <p class="stockist__suburb">Parklea</p>
-          <h3 class="stockist__name">Flavors of Fiji</h3>
-          <address class="stockist__address">Entrance/5 Parklea Markets, Parklea NSW 2768</address>
-          <a class="stockist__dir" href="https://www.google.com/maps/search/?api=1&amp;query=Parklea%20Markets%2C%20Parklea%20NSW%202768"
-             target="_blank" rel="noopener noreferrer">
-            <svg class="stockist__dir-pin" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M8 14.6s5-4.4 5-8.1a5 5 0 1 0-10 0c0 3.7 5 8.1 5 8.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-              <circle cx="8" cy="6.4" r="1.85" fill="none" stroke="currentColor" stroke-width="1.4"/>
-            </svg>
-            <span>Directions</span>
-            <svg class="stockist__dir-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="visually-hidden">to Flavors of Fiji (opens in a new tab)</span>
-          </a>
-        </li>
-
-        <li class="stockist" data-city="sydney" data-search="family needs campbeltown campbelltown unit b/1 tindall st campbelltown nsw 2560">
-          <p class="stockist__suburb">Campbelltown</p>
-          <h3 class="stockist__name">Family Needs</h3>
-          <address class="stockist__address">Unit B/1 Tindall St, Campbelltown NSW 2560</address>
-          <a class="stockist__dir" href="https://www.google.com/maps/search/?api=1&amp;query=Unit%20B%2F1%20Tindall%20St%2C%20Campbelltown%20NSW%202560"
-             target="_blank" rel="noopener noreferrer">
-            <svg class="stockist__dir-pin" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M8 14.6s5-4.4 5-8.1a5 5 0 1 0-10 0c0 3.7 5 8.1 5 8.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-              <circle cx="8" cy="6.4" r="1.85" fill="none" stroke="currentColor" stroke-width="1.4"/>
-            </svg>
-            <span>Directions</span>
-            <svg class="stockist__dir-arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="visually-hidden">to Family Needs (opens in a new tab)</span>
-          </a>
-        </li>
-
-        <li class="stockist" data-city="sydney" data-search="mukhorochok bella vista new stockist mini junior">
-          <span class="stockist__flag">New</span>
-          <p class="stockist__suburb">Bella Vista</p>
-          <h3 class="stockist__name">Mukhorochok</h3>
-          <p class="stockist__pending">
-            Full address coming soon —
-            <a href="mailto:sales@mrnaga.com.au?subject=Bella%20Vista%20stockist">ask us where to find it</a>.
-          </p>
-        </li>
-
-      </ul>
-    </div>
-
-    <!-- ------------------------------------------------------- MELBOURNE -- -->
     <div class="stockists__group" data-group="melbourne">
-      <div class="stockists__head">
-        <h2 class="stockists__city">Melbourne <span>Victoria</span></h2>
-        <a class="stockists__more" href="stockists-melbourne.html">Melbourne page <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
+      <h2 class="stockists__city" id="listHeading">Melbourne <span>Victoria</span></h2>
 
       <ul class="stockists__grid">
-
         <li class="stockist" data-city="melbourne" data-search="eastern halal butcher oakleigh 317-319 huntingdale rd oakleigh vic 3166">
           <p class="stockist__suburb">Oakleigh</p>
           <h3 class="stockist__name">Eastern Halal Butcher</h3>
@@ -502,46 +334,147 @@
             <span class="visually-hidden">to Werribee Western Halal Meat (opens in a new tab)</span>
           </a>
         </li>
-
       </ul>
     </div>
 
-    <!-- ------------------------------------------------------ EMPTY STATE -- -->
     <div class="stockists__empty" id="stockistEmpty" hidden>
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
         <path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
-      <h2>No stockists match that search.</h2>
+      <h2>No Melbourne stockists match that search.</h2>
       <p>
-        We're still growing across Australia and New Zealand. Try a different suburb,
-        clear the filters, or order online and we'll ship it to your door.
+        Try a different suburb, check our <a href="stockists-sydney.html">Sydney stockists</a>,
+        or order online and we'll ship it to your door.
       </p>
-      <button class="btn btn--dark btn--sm" type="button" id="stockistReset">Clear filters</button>
+      <button class="btn btn--dark btn--sm" type="button" id="stockistReset">Clear search</button>
     </div>
 
   </div>
 </section>
 
+<!-- ============================================================ ON THE SHELF ============================================================ -->
+<section class="section cy-shelf-band" aria-labelledby="shelfHeading">
+  <div class="wrap cy-shelf">
+    <div class="cy-shelf__copy">
+      <p class="eyebrow"><span class="eyebrow__badge" aria-hidden="true"></span>What to look for on the shelf</p>
+      <h2 class="section-title" id="shelfHeading">Red label,<br>or gold label.</h2>
+      <p class="section-lede">Two jars. Both made with the naga ghost pepper, both properly hot.</p>
+      <p>Not sure which one to pick up? Start with the red-label Original. If you already know
+         you like it hot, Gold is the one with 95% naga chilli.</p>
+      <div class="cy-since">
+        <b>1996</b>
+        <span>Both follow the same recipe the family has used since 1996.</span>
+      </div>
+    </div>
+
+    <div class="cy-jars">
+      <article class="cy-jar cy-jar--original reveal">
+        <div class="cy-jar__media">
+          <img src="assets/images/product-original.webp" alt="Mr Naga Original hot pepper pickle with a red label" loading="lazy" width="600" height="600">
+        </div>
+        <div class="cy-jar__body">
+          <span class="cy-jar__label"><i aria-hidden="true"></i>Red label</span>
+          <h3>Mr Naga · Very Hot</h3>
+          <p>The original. A thick, oily chilli pickle built on ghost pepper, with genuine heat
+             alongside a deep, smoky, tangy flavour.</p>
+          <div class="heat" role="img" aria-label="Heat level: 4 out of 5. Very hot.">
+            <span class="heat__label">Very Hot</span>
+            <span class="heat__pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+          </div>
+        </div>
+      </article>
+      <article class="cy-jar cy-jar--gold reveal" style="--d:100ms">
+        <div class="cy-jar__media">
+          <img src="assets/images/product-gold.webp" alt="Mr Naga Gold hot pepper pickle with a gold label" loading="lazy" width="600" height="600">
+        </div>
+        <div class="cy-jar__body">
+          <span class="cy-jar__label"><i aria-hidden="true"></i>Gold label</span>
+          <h3>Mr Naga · Gold</h3>
+          <p>95% naga chilli. Hotter and more chilli-forward, for experienced heat seekers.</p>
+          <div class="heat" role="img" aria-label="Heat level: 5 out of 5. Extra hot.">
+            <span class="heat__label">Extra Hot</span>
+            <span class="heat__pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ============================================================ CTA ============================================================ -->
-<section class="cta-band">
+<section class="cta-band" aria-labelledby="ctaHeading">
   <div class="cta-band__grain" aria-hidden="true"></div>
   <div class="wrap cta-band__inner">
     <div>
       <p class="eyebrow eyebrow--light"><span class="eyebrow__badge" aria-hidden="true"></span>Not nearby?</p>
-      <h2 class="section-title section-title--light">We'll send the heat<br>to your door.</h2>
-      <p>Every jar in the range ships anywhere in Australia and New Zealand. Or if you run a
-         shop and want Mr Naga on your shelves, we'd love to hear from you.</p>
+      <h2 class="section-title section-title--light" id="ctaHeading">Cannot get to a<br>Melbourne stockist?</h2>
+      <p>Order online and we will send it to your door. Every jar in the range ships anywhere in
+         Australia and New Zealand.</p>
     </div>
     <div class="cta-band__actions">
       <a class="btn btn--gold" href="index.html#range">Order online</a>
-      <a class="btn btn--outline-light" href="mailto:sales@mrnaga.com.au?subject=Becoming%20a%20Mr%20Naga%20stockist">Become a stockist</a>
+      <a class="btn btn--outline-light" href="stockists.html">All stockists</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ RETAILERS ============================================================ -->
+<section class="section" aria-labelledby="tradeHeading">
+  <div class="wrap">
+    <div class="cy-trade reveal">
+      <div>
+        <p class="eyebrow eyebrow--light"><span class="eyebrow__badge" aria-hidden="true"></span>For retailers</p>
+        <h2 id="tradeHeading">Run a shop in VIC?<br>Stock Mr Naga.</h2>
+        <p>Grocers, butchers and markets across Victoria are already selling it. If your
+           customers like heat, we would love to hear from you.</p>
+        <ul class="cy-trade__perks">
+          <li>Official ANZ distributor</li>
+          <li>Original, Gold, Junior &amp; Mini</li>
+          <li>Grown by word of mouth</li>
+        </ul>
+      </div>
+      <div class="cy-trade__actions">
+        <a class="btn btn--gold" href="mailto:sales@mrnaga.com.au?subject=Stocking%20Mr%20Naga%20in%20VIC">Become a stockist</a>
+        <a class="btn btn--outline-light" href="contact.html">Contact us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ RELATED ============================================================ -->
+<section class="section related" aria-labelledby="relatedHeading">
+  <div class="wrap">
+    <header class="section-head section-head--left">
+      <p class="eyebrow"><span class="eyebrow__badge" aria-hidden="true"></span>Keep exploring</p>
+      <h2 class="section-title" id="relatedHeading">Before you go.</h2>
+    </header>
+
+    <div class="related__grid">
+      <a class="related__card" href="stockists-sydney.html">
+        <p class="related__kicker">Stockists</p>
+        <h3 class="related__title">Mr Naga in Sydney</h3>
+        <p>Ten independent grocers, supermarkets and markets across Sydney and the western suburbs.</p>
+        <span class="related__go">Sydney stockists <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 10h11M11 6l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="related__card" href="how-hot-is-it.html">
+        <p class="related__kicker">Guide</p>
+        <h3 class="related__title">How hot is it?</h3>
+        <p>The Scoville rating, how the naga compares to other chillies, and how much to use.</p>
+        <span class="related__go">Read the guide <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 10h11M11 6l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="related__card" href="how-to-use.html">
+        <p class="related__kicker">Guide</p>
+        <h3 class="related__title">How to use it</h3>
+        <p>Eleven places to put a spoonful, three recipes, and what to do when you overdo it.</p>
+        <span class="related__go">Read the guide <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 10h11M11 6l4 4-4 4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ============================================================ NEWSLETTER ============================================================ -->
-<section class="newsletter" id="contact">
+<section class="newsletter" id="signup">
   <div class="wrap newsletter__inner">
     <div class="newsletter__copy">
       <h2>Get exclusive deals<br>and early access.</h2>
@@ -589,7 +522,7 @@
           <li><a href="how-to-use.html">How to use it</a></li>
           <li><a href="how-hot-is-it.html">How hot is it?</a></li>
           <li><a href="stockists-sydney.html">Stockists in Sydney</a></li>
-          <li><a href="stockists-melbourne.html">Stockists in Melbourne</a></li>
+          <li><a href="stockists-melbourne.html" aria-current="page">Stockists in Melbourne</a></li>
           <li><a href="search.html">Search</a></li>
         </ul>
       </div>
@@ -597,7 +530,7 @@
         <h2>Company</h2>
         <ul>
           <li><a href="about-us.html">About us</a></li>
-          <li><a href="stockists.html" aria-current="page">Stockists</a></li>
+          <li><a href="stockists.html">Stockists</a></li>
           <li><a href="index.html#faq">FAQ</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="https://www.mrnaga.com.au/policies/privacy-policy">Privacy policy</a></li>
@@ -606,13 +539,13 @@
       <div>
         <h2>Follow</h2>
         <ul class="social">
-          <li><a href="https://www.facebook.com/" aria-label="Mr Naga on Facebook">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 9h2.5V6.2H14c-2.1 0-3.4 1.4-3.4 3.5V11H8.6v2.8h2V21h2.9v-7.2h2.2l.4-2.8h-2.6V9.9c0-.6.2-.9.5-.9z"/></svg>
-            <span>Facebook</span></a></li>
-          <li><a href="https://www.instagram.com/" aria-label="Mr Naga on Instagram">
+          <li><a href="https://www.instagram.com/mr.naga_anz/" aria-label="Mr Naga on Instagram">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16.6" cy="7.4" r="1" fill="currentColor"/></svg>
             <span>Instagram</span></a></li>
-          <li><a href="https://www.tiktok.com/" aria-label="Mr Naga on TikTok">
+          <li><a href="https://www.facebook.com/MrNaga-ANZ" aria-label="Mr Naga on Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14 9h2.5V6.2H14c-2.1 0-3.4 1.4-3.4 3.5V11H8.6v2.8h2V21h2.9v-7.2h2.2l.4-2.8h-2.6V9.9c0-.6.2-.9.5-.9z"/></svg>
+            <span>Facebook</span></a></li>
+          <li><a href="https://www.tiktok.com/@mr.naga.anz" aria-label="Mr Naga on TikTok">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14.2 3h2.4a4.9 4.9 0 004.1 4.2v2.5a7.4 7.4 0 01-4.1-1.4v6.2A5.6 5.6 0 1111 9v2.7a2.9 2.9 0 102.1 2.8z"/></svg>
             <span>TikTok</span></a></li>
         </ul>
@@ -631,5 +564,6 @@
 
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/stockists.js" defer></script>
+<script src="assets/js/city.js" defer></script>
 </body>
 </html>

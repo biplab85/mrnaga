@@ -1,0 +1,176 @@
+/* ============================================================================
+   MR NAGA — Contact
+   Extends the "Heritage Heat House" system in style.css. Tokens only.
+   A utility page: quiet, legible, form-first. Page-scoped classes use .ct-
+   ========================================================================== */
+
+/* style.css resets <ul> only */
+.ct-crumb ol,
+.ct-social{ margin:0; padding:0; list-style:none; }
+
+/* ============================================================= PAGE HERO == */
+/* The hero itself is the shared .page-hero component in style.css. Only the
+   two contact-specific pieces live here — a breadcrumb sitting on the dark
+   ground, and the lede beneath the title. */
+
+.ct-crumb{ margin-bottom:var(--s3); }
+.ct-crumb ol{
+  display:flex; flex-wrap:wrap; align-items:center; gap:.5rem;
+  font-size:.75rem; letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+}
+.ct-crumb li+li::before{ content:"/"; margin-right:.5rem; color:rgba(255,255,255,.28); }
+.ct-crumb a{ position:relative; text-decoration:none; }
+/* hit-area expander — small text is a poor tap target */
+.ct-crumb a::after{ content:""; position:absolute; inset:-14px -8px; }
+.ct-crumb a:hover{ color:var(--brass); }
+.ct-crumb [aria-current]{ color:var(--white); font-weight:600; }
+
+.ct-hero-lede{
+  max-width:34rem;
+  margin:0;
+  font-size:clamp(1rem, 1.6vw, 1.125rem);
+  line-height:1.65;
+  color:rgba(255,255,255,.82);
+  text-wrap:pretty;
+}
+
+/* ================================================================= GRID == */
+.ct-body{ padding-top:var(--s6); scroll-margin-top:var(--hdr); }
+.ct-grid{ display:grid; gap:var(--s5); align-items:start; }
+@media (min-width:1000px){
+  .ct-grid{
+    grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);
+    gap:var(--s6);
+  }
+}
+
+.ct-h2{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(1.5rem, 2.6vw, 2rem);
+  line-height:1.14;
+  margin:0 0 var(--s3);
+}
+
+/* ================================================================= FORM == */
+.ct-form{ display:grid; gap:var(--s3); max-width:38rem; }
+
+.ct-req{
+  margin:0;
+  font-size:.8125rem;
+  color:var(--fg-muted);
+}
+.ct-star{ color:var(--naga); font-weight:700; }
+.ct-opt{ color:var(--fg-muted); font-weight:400; text-transform:none; letter-spacing:0; }
+
+/* textarea — style.css only dresses <input> */
+.ct-form textarea{
+  width:100%;
+  font:inherit;
+  color:var(--fg);
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:.875rem 1rem;
+  line-height:1.6;
+  resize:vertical;
+  min-height:9rem;
+  transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.ct-form textarea::placeholder{ color:#A2938D; }
+.ct-form textarea:hover{ border-color:#CFC2B8; }
+.ct-form textarea:focus{ border-color:var(--ink); box-shadow:0 0 0 3px rgba(20,13,12,.08); }
+.ct-form textarea[aria-invalid="true"]{ border-color:var(--naga); }
+
+/* comfortable touch height on mobile */
+.ct-form input{ min-height:48px; }
+
+.ct-submit{ justify-self:start; }
+
+.ct-status{
+  margin:0;
+  padding:.75rem 1rem;
+  border-radius:var(--radius);
+  font-size:.9375rem;
+  line-height:1.55;
+  border:1px solid transparent;
+}
+.ct-status--info{  background:var(--cream-2); border-color:var(--line);   color:var(--char); }
+.ct-status--ok{    background:#EAF6EE;        border-color:#B7DFC5;       color:#12522C; }
+.ct-status--error{ background:#FDECEC;        border-color:#F3B9BA;       color:#8E0508; }
+
+/* ================================================================= RAIL == */
+.ct-rail{ display:grid; gap:var(--s2); align-content:start; }
+@media (min-width:1000px){
+  .ct-rail{ position:sticky; top:calc(var(--hdr) + var(--s2)); }
+}
+
+.ct-card{
+  background:var(--cream);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:var(--s3);
+  transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.ct-card:hover{ border-color:#D8CCC1; box-shadow:var(--shadow-sm); }
+.ct-card h3{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:1.0625rem;
+  margin:0 0 .4rem;
+  color:var(--ink);
+}
+.ct-card p{
+  margin:0 0 .75rem;
+  font-size:.9375rem;
+  line-height:1.55;
+  color:var(--fg-muted);
+}
+
+.ct-link{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;          /* touch target */
+  padding-right:.25rem;
+  margin-right:var(--s2);
+  font-weight:600;
+  font-size:.9375rem;
+  color:var(--naga-deep);
+  text-underline-offset:3px;
+}
+.ct-link:hover{ color:var(--naga); }
+
+/* -- social -- */
+.ct-social{ display:grid; gap:.125rem; }
+.ct-social a{
+  display:flex;
+  align-items:center;
+  gap:.625rem;
+  min-height:44px;
+  padding:.25rem .5rem;
+  margin-left:-.5rem;
+  border-radius:var(--radius);
+  font-size:.9375rem;
+  font-weight:500;
+  color:var(--char);
+  text-decoration:none;
+  transition:background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.ct-social a:hover{ background:var(--white); color:var(--naga-deep); }
+.ct-social svg{ width:18px; height:18px; flex:none; color:var(--naga); }
+
+/* ====================================================== REDUCED MOTION === */
+@media (prefers-reduced-motion:reduce){
+  .ct-card,
+  .ct-social a,
+  .ct-form textarea{ transition:none; }
+}
+
+/* ================================================================ PRINT === */
+@media print{
+  .ct-head::before,
+  .ct-submit,
+  .newsletter{ display:none !important; }
+  .ct-card{ break-inside:avoid; }
+}

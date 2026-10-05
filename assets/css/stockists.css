@@ -3,175 +3,6 @@
    Extends style.css. Only page-specific patterns live here.
    ========================================================================== */
 
-/* ========================================================== PAGE HERO ==== */
-/* Layered ground: photograph -> scrim -> ember -> grain. Everything sits on
-   negative z so the copy never has to fight a stacking context. */
-.page-hero{
-  position:relative; isolation:isolate;
-  background:var(--ink);
-  color:rgba(255,255,255,.82);
-  overflow:hidden;
-  padding:var(--s6) 0 var(--s7);
-}
-@media (min-width:1024px){ .page-hero{ padding:var(--s7) 0; } }
-
-.page-hero__bg{ position:absolute; inset:0; z-index:-4; }
-.page-hero__bg img{
-  width:100%; height:100%; object-fit:cover; object-position:center 32%;
-  opacity:.30; filter:saturate(.7) contrast(1.04);
-}
-.page-hero__scrim{
-  position:absolute; inset:0; z-index:-3;
-  background:
-    linear-gradient(100deg, var(--ink) 0%, rgba(20,13,12,.95) 40%,
-                    rgba(20,13,12,.74) 66%, rgba(20,13,12,.88) 100%),
-    linear-gradient(to top, var(--ink) 1%, transparent 46%);
-}
-/* an ember sitting behind the packshot, so the jars read as lit */
-.page-hero__glow{
-  position:absolute; z-index:-2; right:-8%; top:4%;
-  width:min(62vw, 700px); aspect-ratio:1; border-radius:50%;
-  background:radial-gradient(circle,
-    rgba(237,7,10,.40) 0%, rgba(176,2,6,.16) 44%, transparent 68%);
-  filter:blur(20px); pointer-events:none;
-}
-.page-hero__grain{
-  position:absolute; inset:0; z-index:-1; opacity:.15; pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-}
-/* brass-into-naga hairline closing the band */
-.page-hero__rule{
-  position:absolute; left:0; right:0; bottom:0; height:2px;
-  background:linear-gradient(90deg, transparent 0%, rgba(227,167,44,.7) 20%,
-             var(--naga) 52%, rgba(227,167,44,.5) 80%, transparent 100%);
-}
-
-.page-hero__inner{ display:grid; gap:var(--s5); align-items:center; }
-@media (min-width:1024px){
-  .page-hero__inner{ grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); gap:var(--s6); }
-}
-.page-hero__copy{ max-width:38rem; }
-
-.page-hero__title{
-  font-family:var(--display); font-optical-sizing:auto;
-  font-weight:900; font-variation-settings:"SOFT" 20, "WONK" 1;
-  font-size:clamp(2.5rem, 1.6rem + 4vw, 4.25rem);
-  line-height:1.02; letter-spacing:-.03em;
-  color:var(--white); margin:0 0 var(--s3);
-  text-wrap:balance;
-}
-.page-hero__title em{
-  font-style:normal; color:var(--brass);
-  position:relative; display:inline-block;
-}
-.page-hero__title em::after{
-  content:""; position:absolute; left:-1%; right:-1%; bottom:.05em; height:.075em;
-  background:var(--naga); border-radius:2px;
-}
-/* collapses against the title's own --s3 bottom margin, so this value is the
-   resulting gap rather than an addition to it */
-.page-hero__actions{
-  display:flex; flex-wrap:wrap; gap:var(--s2);
-  margin-top:var(--s5);
-}
-
-/* -------------------------------------------------------------- stats --- */
-.page-hero__stats{
-  display:flex; flex-wrap:wrap;
-  margin-top:var(--s5); padding-top:var(--s3);
-  border-top:1px solid rgba(227,167,44,.24);
-}
-.stat{ padding-inline:var(--s4); border-left:1px solid rgba(255,255,255,.13); }
-.stat:first-child{ padding-left:0; border-left:0; }
-.stat b{
-  display:block; font-family:var(--display); font-optical-sizing:auto;
-  font-weight:900; font-variation-settings:"SOFT" 20, "WONK" 1;
-  font-size:clamp(1.875rem, 1.5rem + 1.2vw, 2.5rem); line-height:1;
-  color:var(--brass); font-variant-numeric:tabular-nums;
-}
-.stat span{
-  display:block; margin-top:.4rem;
-  font-size:.625rem; font-weight:700; letter-spacing:.16em;
-  text-transform:uppercase; color:rgba(255,255,255,.55);
-}
-
-/* ------------------------------------------------------------- figure --- */
-/* A transparent cutout, so it floats on the ember rather than sitting in a
-   frame — the same treatment the homepage hero gives its jar trio. */
-.page-hero__figure{
-  position:relative; margin:0;
-  width:min(100%, 490px); justify-self:center;
-}
-.page-hero__figure img{
-  position:relative; z-index:1; width:100%;
-  filter:drop-shadow(0 34px 46px rgba(0,0,0,.62));
-  animation:hero-float 7s ease-in-out infinite;
-  transition:filter 620ms var(--ease);
-}
-@keyframes hero-float{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-12px); } }
-/* the jars keep floating on hover, so the lift is expressed through the
-   shadow rather than a transform that would fight the animation */
-.page-hero__figure:hover img{
-  filter:drop-shadow(0 44px 60px rgba(0,0,0,.7)) drop-shadow(0 0 26px rgba(237,7,10,.28));
-}
-
-/* ------------------------------------------------------ premium frame --- */
-/* A brass hairline the jars deliberately overflow. It sits offset at rest and
-   settles square behind the packshot on hover. */
-.page-hero__frame{
-  position:absolute; z-index:0;
-  /* sits around the packshot, and the jar lids and bases deliberately break
-     out of it top and bottom */
-  inset:7% -5%;
-  border:1px solid rgba(227,167,44,.34);
-  border-radius:var(--radius-lg);
-  background:linear-gradient(158deg, rgba(255,255,255,.055) 0%, transparent 52%);
-  transition:transform 620ms var(--ease), border-color 620ms var(--ease),
-             box-shadow 620ms var(--ease), background 620ms var(--ease);
-  pointer-events:none;
-}
-@media (max-width:1023px){ .page-hero__frame{ inset:7% -2%; } }
-/* mitred corner accents, top-left and bottom-right */
-.page-hero__frame::before,
-.page-hero__frame::after{
-  content:""; position:absolute;
-  width:26px; height:26px;
-  border:2px solid var(--brass);
-  transition:width 620ms var(--ease), height 620ms var(--ease), opacity 620ms var(--ease);
-  opacity:.75;
-}
-.page-hero__frame::before{
-  top:-1px; left:-1px;
-  border-right:0; border-bottom:0;
-  border-radius:var(--radius-lg) 0 0 0;
-}
-.page-hero__frame::after{
-  bottom:-1px; right:-1px;
-  border-left:0; border-top:0;
-  border-radius:0 0 var(--radius-lg) 0;
-}
-
-/* opens outward rather than settling behind the jars, so the frame stays
-   visible for the whole interaction */
-.page-hero__figure:hover .page-hero__frame{
-  transform:scale(1.045);
-  border-color:rgba(227,167,44,.85);
-  background:linear-gradient(158deg, rgba(227,167,44,.10) 0%, transparent 58%);
-  box-shadow:0 0 0 1px rgba(227,167,44,.18), 0 26px 64px rgba(237,7,10,.22);
-}
-.page-hero__figure:hover .page-hero__frame::before,
-.page-hero__figure:hover .page-hero__frame::after{
-  width:46px; height:46px; opacity:1;
-}
-
-/* pool of shadow under the jars so they sit on something */
-.page-hero__figure::after{
-  content:""; position:absolute; z-index:0;
-  left:8%; right:8%; bottom:-4%; height:38px;
-  background:radial-gradient(ellipse at center, rgba(0,0,0,.55) 0%, transparent 70%);
-  filter:blur(6px); pointer-events:none;
-}
-
 /* =========================================================== TOOLBAR ===== */
 .finder{ background:var(--cream); border-bottom:1px solid var(--line); }
 /* One toolbar row: result count + city tabs on the left, search on the right.
@@ -385,21 +216,31 @@
 /* ============================================== REDUCED MOTION / PRINT === */
 @media (prefers-reduced-motion:reduce){
   .stockist:hover{ transform:none; }
-  .page-hero__figure img{ animation:none; }
   /* keep the colour change, drop the wipe and the bounce */
   .stockist__dir::before{ transition:none; }
   .stockist__dir:hover::before,
   .stockist__dir:focus-visible::before{ transform:translateX(0); }
   .stockist__dir:hover .stockist__dir-pin,
   .stockist__dir:focus-visible .stockist__dir-pin{ transform:none; }
-  /* keep the frame's colour/shadow response, drop the movement */
-  .page-hero__frame{ transform:none; }
-  .page-hero__figure:hover .page-hero__frame{ transform:none; }
 }
 @media print{
-  .finder,.cta-band__actions,.page-hero__figure{ display:none; }
-  .page-hero{ background:#fff; color:#000; padding:2rem 0; }
-  .page-hero__bg,.page-hero__scrim,.page-hero__glow,.page-hero__grain{ display:none; }
-  .page-hero__title,.stat b{ color:#000; }
+  .finder{ display:none; }
   .stockist{ break-inside:avoid; }
 }
+
+/* ============================================== CITY HEAD + PAGE LINK ==== */
+/* each city group links through to its own stockists page */
+.stockists__head{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:.5rem var(--s3); margin:0 0 var(--s3);
+}
+.stockists__head .stockists__city{ margin:0; }
+.stockists__more{
+  display:inline-flex; align-items:center; gap:.4rem;
+  min-height:44px;
+  font-size:.8125rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--naga-deep); text-decoration:none;
+}
+.stockists__more svg{ width:15px; height:15px; transition:transform var(--dur) var(--ease); }
+.stockists__more:hover{ color:var(--naga); }
+.stockists__more:hover svg{ transform:translateX(3px); }
